@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy6s7d45aia6u"]
+
+[ext_resource type="Script" path="res://src/scn/Main.gd" id="1_wbx3c"]
+[ext_resource type="PackedScene" uid="uid://dkk0el8w7gp7k" path="res://src/scn/LoadScreen.tscn" id="2_p6s3y"]
+[ext_resource type="PackedScene" uid="uid://cleo7p6k3y7ix" path="res://src/scn/TransitionScreen.tscn" id="3_rj4cn"]
+[ext_resource type="PackedScene" uid="uid://dpknnogf4kfnh" path="res://src/scn/SceneNode.tscn" id="3_vgxeb"]
+
+[node name="Main" type="Node"]
+script = ExtResource( "1_wbx3c" )
+
+[node name="LoadScreen" parent="." instance=ExtResource( "2_p6s3y" )]
+increment_value = null
+
+[node name="SceneNode" parent="." instance=ExtResource( "3_vgxeb" )]
+load_screen_np = NodePath("../LoadScreen")
+trans_screen_np = NodePath("../TransitionScreen")
+
+[node name="TransitionScreen" parent="." instance=ExtResource( "3_rj4cn" )]
+visible = false
+
+[connection signal="SceneLoaded" from="LoadScreen" to="SceneNode" method="_on_scene_loaded"]

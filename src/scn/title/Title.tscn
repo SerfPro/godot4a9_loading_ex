@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpya2gs3n48n1"]
+
+[ext_resource type="Script" path="res://src/scn/title/Title.gd" id="1_ayw04"]
+
+[node name="Title" type="Node"]
+script = ExtResource( "1_ayw04" )
+
+[node name="TitleScreen" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="TitleScreen"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.0
+offset_top = 100.0
+offset_right = 141.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 50
+text = "Title Screen"
+metadata/_edit_lock_ = true
+
+[node name="ControlVB" type="VBoxContainer" parent="TitleScreen"]
+minimum_size = Vector2(140, 0)
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -118.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="PlayBtn" type="Button" parent="TitleScreen/ControlVB"]
+offset_right = 140.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 28
+text = "Play"
+metadata/_edit_lock_ = true
+
+[node name="QuitBtn" type="Button" parent="TitleScreen/ControlVB"]
+offset_top = 51.0
+offset_right = 140.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 28
+text = "Quit"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="TitleScreen/ControlVB/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="TitleScreen/ControlVB/QuitBtn" to="." method="_on_quit_btn_pressed"]

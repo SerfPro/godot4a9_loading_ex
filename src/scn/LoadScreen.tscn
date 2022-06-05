@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkk0el8w7gp7k"]
+
+[ext_resource type="Script" path="res://src/scn/LoadScreen.gd" id="1_kfcda"]
+
+[node name="LoadScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+script = ExtResource( "1_kfcda" )
+metadata/_edit_lock_ = true
+
+[node name="LoadPB" type="ProgressBar" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_top = 100.0
+offset_right = 184.5
+offset_bottom = 172.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Loading Screen"
+metadata/_edit_layout_mode = 1
+metadata/_edit_lock_ = true
