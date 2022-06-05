@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://6jpqnthe3kd"]
+[gd_scene load_steps=3 format=3 uid="uid://6jpqnthe3kd"]
 
 [ext_resource type="Script" path="res://src/scn/game/Game.gd" id="1_bi3ih"]
+[ext_resource type="Texture2D" uid="uid://buqsciisnmvtr" path="res://assets/game_bg.jpg" id="2_swxpx"]
 
 [node name="Game" type="Node"]
 script = ExtResource( "1_bi3ih" )
 
-[node name="GameScreen" type="ColorRect" parent="."]
+[node name="GameScreen" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.0156863, 0.00784314, 0.25098, 1)
+texture = ExtResource( "2_swxpx" )
+ignore_texture_size = true
+stretch_mode = 6
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="GameScreen"]
@@ -18,28 +21,45 @@ offset_left = -159.5
 offset_top = 100.0
 offset_right = 159.5
 offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 50
 text = "Game Screen"
+metadata/_edit_lock_ = true
 
-[node name="ControlsVB" type="VBoxContainer" parent="GameScreen"]
+[node name="ControlsBg" type="ColorRect" parent="GameScreen"]
+minimum_size = Vector2(230, 120)
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = -118.0
+offset_left = -250.0
+offset_top = -140.0
 offset_right = -20.0
 offset_bottom = -20.0
+color = Color(0, 0, 0, 0.784314)
 metadata/_edit_lock_ = true
 
-[node name="TitleBtn" type="Button" parent="GameScreen/ControlsVB"]
+[node name="ControlsVB" type="VBoxContainer" parent="GameScreen/ControlsBg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -49.0
+offset_right = 104.5
+offset_bottom = 49.0
+metadata/_edit_lock_ = true
+
+[node name="TitleBtn" type="Button" parent="GameScreen/ControlsBg/ControlsVB"]
 offset_right = 209.0
 offset_bottom = 47.0
 theme_override_font_sizes/font_size = 28
 text = "Quit 2 Title"
 metadata/_edit_lock_ = true
 
-[node name="QuitBtn" type="Button" parent="GameScreen/ControlsVB"]
+[node name="QuitBtn" type="Button" parent="GameScreen/ControlsBg/ControlsVB"]
 offset_top = 51.0
 offset_right = 209.0
 offset_bottom = 98.0
@@ -47,5 +67,5 @@ theme_override_font_sizes/font_size = 28
 text = "Quit 2 Desktop"
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="GameScreen/ControlsVB/TitleBtn" to="." method="_on_title_btn_pressed"]
-[connection signal="pressed" from="GameScreen/ControlsVB/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="GameScreen/ControlsBg/ControlsVB/TitleBtn" to="." method="_on_title_btn_pressed"]
+[connection signal="pressed" from="GameScreen/ControlsBg/ControlsVB/QuitBtn" to="." method="_on_quit_btn_pressed"]

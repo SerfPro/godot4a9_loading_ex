@@ -9,7 +9,6 @@
 script = ExtResource( "1_wbx3c" )
 
 [node name="LoadScreen" parent="." instance=ExtResource( "2_p6s3y" )]
-increment_value = null
 
 [node name="SceneNode" parent="." instance=ExtResource( "3_vgxeb" )]
 load_screen_np = NodePath("../LoadScreen")
